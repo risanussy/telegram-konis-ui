@@ -14,7 +14,7 @@ import LoginMasukView from "@/views/LoginMasukView.vue"; // Perbaiki jalur impor
 
 const routes = [
   {
-    path: "/login-form",
+    path: "/",
     name: "login-form",
     component: LoginMasukView,
   },
@@ -69,7 +69,7 @@ const routes = [
     component: DocKeluarView,
   },
   {
-    path: "/",
+    path: "/home",
     name: "home",
     component: HomeView,
   },

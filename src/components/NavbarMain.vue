@@ -41,7 +41,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <router-Link class="nav-link" to="login-form">LogOut</router-Link>
+            <router-Link class="nav-link" to="/">LogOut</router-Link>
           </li>
           <li class="nav-item">
             <router-Link class="nav-link" to="profil">Profil</router-Link>

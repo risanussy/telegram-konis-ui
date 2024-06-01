@@ -1,11 +1,11 @@
 <template>
   <div class="containe">
     <div class="login-form">
-      <form>
+      <form @submit.prevent="handleLogin">
         <h3 class="mb-4">Login</h3>
         <div class="mb-3">
-          <label for="text" class="form-label">Masukan Username</label>
-          <input type="text" class="form-control" id="text" v-model="email" required />
+          <label for="nama" class="form-label">Masukan Nama</label>
+          <input type="text" class="form-control" id="nama" v-model="nama" required />
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
@@ -18,13 +18,29 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "LoginMasukView",
   data() {
     return {
-      email: "",
+      nama: "",
       password: "",
     };
+  },
+  methods: {
+    async handleLogin() {
+      try {
+        const response = await axios.get(`http://localhost:8000/api/users/${this.nama}`);
+        if (response.data.password === this.password) {
+          this.$router.push('/doc_masuk');
+        } else {
+          alert("Password salah!");
+        }
+      } catch (error) {
+        alert("Nama salah!");
+      }
+    },
   },
 };
 </script>
